@@ -48,9 +48,35 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The footer links to **`/resume`**, implemented as a route handler for a placeholder PDF. Swap this for your real asset when ready.
 
+## Publish to GitHub
+
+This project’s Git remote is set to **`https://github.com/sid-deve/portfolio.git`**.
+
+1. Create an empty repository named **`portfolio`** under **[sid-deve](https://github.com/sid-deve)** (no README/license/gitignore templates—this repo already has them).
+2. Sign in with the GitHub CLI once (recommended):
+
+   ```bash
+   "C:\Program Files\GitHub CLI\gh.exe" auth login
+   ```
+
+   Or authenticate HTTPS pushes via Git Credential Manager when Git prompts you.
+3. Push the `main` branch:
+
+   ```bash
+   git push -u origin main
+   ```
+
+**Alternative (CLI-only):** from this folder, after `gh auth login`, you can run:
+
+```bash
+"C:\Program Files\GitHub CLI\gh.exe" repo create portfolio --public --source=. --remote=origin --push
+```
+
+If `origin` already exists (as it does here), either push after creating the empty repo on GitHub as above, or remove `origin` first (`git remote remove origin`) and rerun `repo create` with `--remote=origin`.
+
 ## Author
 
-Published under the GitHub account **[sid-deve](https://github.com/sid-deve)**.
+Repository intended for **[github.com/sid-deve](https://github.com/sid-deve)** (`portfolio`).
 
 ## License
 
