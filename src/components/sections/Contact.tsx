@@ -15,12 +15,41 @@ const iconMap = {
 } as const;
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus("sent");
-    window.setTimeout(() => setStatus("idle"), 3200);
+    setStatus("sending");
+    setErrorMsg("");
+
+    const form = event.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        window.setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        const json = await res.json().catch(() => ({}));
+        setErrorMsg((json as { error?: string }).error ?? "Something went wrong.");
+        setStatus("error");
+      }
+    } catch {
+      setErrorMsg("Network error — please try again.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -29,7 +58,7 @@ export function Contact() {
         <SectionHeading
           id="contact-heading"
           eyebrow="Contact"
-          title="Let’s architect your next release"
+          title="Let's architect your next release"
           subtitle="Tell me about your roadmap, constraints, and ambition—I respond within one business day with next steps."
         />
 
@@ -49,11 +78,11 @@ export function Contact() {
                 </p>
               </div>
               <Link
-                href="mailto:hello@yourdomain.com"
+                href="mailto:yadavsid50k@gmail.com"
                 className="inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white transition-colors hover:border-white/20 hover:bg-white/10"
               >
                 <Mail className="h-5 w-5 text-sky-300" aria-hidden />
-                hello@yourdomain.com
+                yadavsid50k@gmail.com
               </Link>
               <div className="flex flex-wrap gap-3">
                 {SOCIAL_LINKS.map((social) => {
@@ -125,16 +154,22 @@ export function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-400 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-transform hover:scale-[1.01]"
+                  disabled={status === "sending"}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-400 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-transform hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send message
+                  {status === "sending" ? "Sending…" : "Send message"}
                   <Send className="h-4 w-4" aria-hidden />
                 </button>
-                {status === "sent" ? (
+                {status === "sent" && (
                   <p className="text-center text-sm text-emerald-400" role="status">
-                    Thanks—your note is on its way. I’ll reply shortly.
+                    Thanks—your note is on its way. I&apos;ll reply shortly.
                   </p>
-                ) : null}
+                )}
+                {status === "error" && (
+                  <p className="text-center text-sm text-red-400" role="alert">
+                    {errorMsg}
+                  </p>
+                )}
               </form>
             </GlassCard>
           </motion.div>

@@ -5,17 +5,39 @@ import {
   ArrowRight,
   Boxes,
   Sparkles,
+  Terminal,
   Workflow,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { SKIcon } from "@/components/ui/SKLogo";
 
 const FLOATING_BADGES = [
   { label: "Next.js", icon: Sparkles },
   { label: "Node.js", icon: Boxes },
   { label: "AI APIs", icon: Workflow },
 ];
+
+const CODE_LINES = [
+  { indent: 0, tokens: [{ t: "keyword", v: "const" }, { t: "space", v: " " }, { t: "var", v: "launch" }, { t: "op", v: " = " }, { t: "fn", v: "async" }, { t: "op", v: " () => {" }] },
+  { indent: 1, tokens: [{ t: "keyword", v: "const" }, { t: "space", v: " " }, { t: "var", v: "app" }, { t: "op", v: " = " }, { t: "keyword", v: "await" }, { t: "space", v: " " }, { t: "fn", v: "build" }, { t: "op", v: "({" }] },
+  { indent: 2, tokens: [{ t: "prop", v: "stack" }, { t: "op", v: ": [" }, { t: "str", v: '"Next.js"' }, { t: "op", v: ", " }, { t: "str", v: '"Node"' }, { t: "op", v: ", " }, { t: "str", v: '"AI"' }, { t: "op", v: "]," }] },
+  { indent: 2, tokens: [{ t: "prop", v: "quality" }, { t: "op", v: ": " }, { t: "str", v: '"flagship"' }, { t: "op", v: "," }] },
+  { indent: 2, tokens: [{ t: "prop", v: "delivery" }, { t: "op", v: ": " }, { t: "str", v: '"on-time"' }, { t: "op", v: "," }] },
+  { indent: 1, tokens: [{ t: "op", v: "});" }] },
+  { indent: 1, tokens: [{ t: "keyword", v: "return" }, { t: "space", v: " " }, { t: "var", v: "app" }, { t: "op", v: ".deploy();" }] },
+  { indent: 0, tokens: [{ t: "op", v: "};" }] },
+];
+
+const TOKEN_COLORS: Record<string, string> = {
+  keyword: "text-violet-400",
+  var: "text-sky-300",
+  fn: "text-fuchsia-400",
+  str: "text-emerald-400",
+  prop: "text-amber-300",
+  op: "text-zinc-400",
+  space: "",
+};
 
 export function Hero() {
   return (
@@ -27,6 +49,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top,_rgba(139,92,246,0.35),transparent_55%),radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.2),transparent_45%)]" />
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-16 lg:px-8">
+        {/* ── Left: copy ── */}
         <div className="space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -102,6 +125,7 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* ── Right: code card ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -110,28 +134,46 @@ export function Hero() {
         >
           <div className="gradient-border">
             <GlassCard strong className="relative overflow-hidden rounded-[1.15rem] p-4 sm:p-6">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-black">
-                <Image
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&q=80"
-                  alt="Portrait of the developer in a professional workspace"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 480px"
-                  className="object-cover"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              {/* Terminal header */}
+              <div className="mb-4 flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-500/80" />
+                <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
+                <div className="h-3 w-3 rounded-full bg-emerald-500/80" />
+                <div className="ml-3 flex items-center gap-1.5 rounded-md bg-white/5 px-3 py-1">
+                  <Terminal className="h-3 w-3 text-zinc-500" />
+                  <span className="text-[11px] font-mono text-zinc-500">studio.ts</span>
+                </div>
               </div>
 
-              <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/10" />
+              {/* Code block */}
+              <div className="rounded-xl bg-black/40 p-5 font-mono text-xs leading-6 sm:text-sm">
+                {CODE_LINES.map((line, li) => (
+                  <div key={li} className="flex">
+                    <span className="mr-4 w-4 select-none text-right text-[10px] text-zinc-700">
+                      {li + 1}
+                    </span>
+                    <span style={{ paddingLeft: `${line.indent * 1.25}rem` }}>
+                      {line.tokens.map((tok, ti) => (
+                        <span key={ti} className={TOKEN_COLORS[tok.t] ?? ""}>
+                          {tok.v}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                ))}
+                {/* blinking cursor */}
+                <div className="mt-1 flex">
+                  <span className="mr-4 w-4 select-none text-right text-[10px] text-zinc-700">9</span>
+                  <span className="inline-block h-4 w-2 animate-pulse rounded-sm bg-violet-400/80" />
+                </div>
+              </div>
 
+              {/* Tech badges */}
               {FLOATING_BADGES.map((badge, index) => (
                 <motion.div
                   key={badge.label}
                   initial={{ opacity: 0, y: 12 }}
-                  animate={{
-                    opacity: 1,
-                    y: [0, -10, 0],
-                  }}
+                  animate={{ opacity: 1, y: [0, -10, 0] }}
                   transition={{
                     opacity: { delay: 0.45 + index * 0.08, duration: 0.45 },
                     y: {
@@ -141,20 +183,37 @@ export function Hero() {
                       ease: "easeInOut",
                     },
                   }}
-                  className={`absolute flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-3 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-md ${
+                  className={`absolute flex items-center gap-2 rounded-full border border-white/15 bg-black/50 px-3 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-md ${
                     index === 0
-                      ? "left-4 top-8"
+                      ? "-top-3 left-6"
                       : index === 1
-                        ? "bottom-16 right-4"
-                        : "bottom-8 left-6"
+                        ? "-right-3 top-1/3"
+                        : "-bottom-3 left-10"
                   }`}
                 >
                   <badge.icon className="h-4 w-4 text-violet-300" aria-hidden />
                   {badge.label}
                 </motion.div>
               ))}
+
+              {/* Glow inside card */}
+              <div className="pointer-events-none absolute inset-0 rounded-[1.15rem] bg-gradient-to-br from-violet-500/5 via-transparent to-sky-500/5" />
             </GlassCard>
           </div>
+
+          {/* Avatar / identity pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 rounded-full border border-white/15 bg-[rgb(10,12,24)]/90 px-4 py-2 shadow-xl backdrop-blur-md whitespace-nowrap"
+          >
+            <SKIcon size={22} />
+            <div className="text-left">
+              <p className="text-xs font-semibold text-white">Kaushlendra Pal</p>
+              <p className="text-[10px] text-zinc-500">WordPress &amp; Next.js Developer</p>
+            </div>
+          </motion.div>
 
           <motion.div
             aria-hidden

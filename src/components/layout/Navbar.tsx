@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { SKLogo } from "@/components/ui/SKLogo";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -45,12 +46,10 @@ export function Navbar() {
         >
           <Link
             href="#home"
-            className="flex items-center gap-2 text-lg font-semibold tracking-tight text-white"
+            className="flex items-center"
+            aria-label="SK Dev — Home"
           >
-            <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-sky-400 text-sm font-bold text-white shadow-lg shadow-violet-500/25">
-              FS
-            </span>
-            <span className="hidden sm:inline">Studio.dev</span>
+            <SKLogo size="sm" />
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -97,6 +96,9 @@ export function Navbar() {
             className="md:hidden"
           >
             <div className="mx-auto mt-3 max-w-6xl space-y-3 rounded-2xl border border-white/10 bg-[rgb(var(--surface-elevated)/0.92)] px-4 py-4 shadow-2xl backdrop-blur-xl sm:px-6">
+              <Link href="#home" onClick={() => setOpen(false)} className="block mb-1">
+                <SKLogo size="sm" />
+              </Link>
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}

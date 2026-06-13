@@ -1,13 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Brain,
   Code2,
   Database,
   Globe,
   Layers,
   LayoutDashboard,
   MonitorSmartphone,
+  Package,
+  Search,
   Server,
+  Settings,
   Zap,
 } from "lucide-react";
 
@@ -38,54 +40,75 @@ export type ServiceItem = {
 
 export const SERVICES: ServiceItem[] = [
   {
-    title: "Frontend Development",
+    title: "Next.js & React Development",
     description:
-      "High-performance interfaces with React and Next.js—motion-rich, accessible, and conversion-focused.",
+      "High-performance interfaces built with Next.js App Router and React—motion-rich, accessible, and conversion-focused.",
     icon: MonitorSmartphone,
-  },
-  {
-    title: "Backend Development",
-    description:
-      "Robust APIs, authentication, and data layers engineered for reliability at scale.",
-    icon: Server,
   },
   {
     title: "WordPress Development",
     description:
-      "Custom themes, headless setups, and optimized editorial workflows for growing teams.",
+      "Custom themes, plugin implementation, headless WordPress setups, and optimised editorial workflows for growing teams.",
     icon: Globe,
   },
   {
-    title: "REST API Development",
+    title: "Landing Page Design",
     description:
-      "Clean contracts, versioning, and observability so integrations ship without surprises.",
+      "Pixel-perfect, fast-loading landing pages engineered to convert—built with Next.js or WordPress.",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "REST API & Laravel",
+    description:
+      "Clean REST API contracts, Laravel backends, versioning, and observability so integrations ship without surprises.",
     icon: Layers,
   },
   {
-    title: "AI/ML Solutions",
+    title: "SEO Optimisation",
     description:
-      "Practical ML features—from classification to retrieval—embedded thoughtfully in products.",
-    icon: Brain,
+      "Structured metadata, Core Web Vitals, schema markup, and crawl-ready architecture baked into every release.",
+    icon: Search,
+  },
+  {
+    title: "Headless Websites",
+    description:
+      "Decouple your CMS from your front end—headless WordPress or custom APIs powering blazing-fast Next.js frontends.",
+    icon: Server,
+  },
+  {
+    title: "Plugin Implementation",
+    description:
+      "Custom WordPress plugin development and third-party plugin integration—extending functionality without breaking stability.",
+    icon: Package,
+  },
+  {
+    title: "Automation & Workflows",
+    description:
+      "Webhook pipelines, cron jobs, and no-code/low-code automation that cut manual toil and keep data in sync.",
+    icon: Settings,
   },
   {
     title: "Full Stack Web Applications",
     description:
-      "End-to-end builds from discovery to deployment with CI/CD and production-grade patterns.",
-    icon: LayoutDashboard,
+      "End-to-end builds from discovery to deployment with CI/CD, secure APIs, and production-grade patterns.",
+    icon: Code2,
   },
 ];
 
+// ── Tech stack (Python removed; new skills added) ──────────────────────────
 export const TECH_STACK = [
-  { name: "Next.js", slug: "nextjs" },
-  { name: "React.js", slug: "react" },
-  { name: "Tailwind CSS", slug: "tailwind" },
-  { name: "Node.js", slug: "nodejs" },
-  { name: "Express.js", slug: "express" },
-  { name: "MongoDB", slug: "mongodb" },
-  { name: "MySQL", slug: "mysql" },
-  { name: "Firebase", slug: "firebase" },
-  { name: "WordPress", slug: "wordpress" },
-  { name: "Python", slug: "python" },
+  { name: "Next.js",        slug: "nextjs"      },
+  { name: "React.js",       slug: "react"       },
+  { name: "WordPress",      slug: "wordpress"   },
+  { name: "Laravel",        slug: "laravel"     },
+  { name: "Tailwind CSS",   slug: "tailwind"    },
+  { name: "Node.js",        slug: "nodejs"      },
+  { name: "REST APIs",      slug: "restapi"     },
+  { name: "SEO",            slug: "seo"         },
+  { name: "Headless CMS",   slug: "headless"    },
+  { name: "Automation",     slug: "automation"  },
+  { name: "MySQL",          slug: "mysql"       },
+  { name: "MongoDB",        slug: "mongodb"     },
 ] as const;
 
 export const PROJECTS = [
@@ -93,50 +116,45 @@ export const PROJECTS = [
     title: "Student Help Desk",
     description:
       "Ticketing and knowledge base portal that reduced response times with smart routing and SLA dashboards.",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+    image: "",
     tech: ["Next.js", "Node.js", "MongoDB"],
-    github: "https://github.com",
+    github: "https://github.com/Kaushlendra-pal",
     demo: "https://vercel.com",
   },
   {
     title: "Job Portal",
     description:
       "Role discovery platform with saved searches, employer analytics, and frictionless applications.",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=80",
-    tech: ["React", "Express", "MySQL"],
-    github: "https://github.com",
+    image: "",
+    tech: ["React", "Laravel", "MySQL"],
+    github: "https://github.com/Kaushlendra-pal",
     demo: "https://vercel.com",
   },
   {
     title: "Food Wastage Management System",
     description:
       "Inventory intelligence connecting surplus supply with partners—tracking impact in real time.",
-    image:
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&q=80",
-    tech: ["Next.js", "Firebase", "Tailwind"],
-    github: "https://github.com",
+    image: "",
+    tech: ["Next.js", "REST API", "Tailwind"],
+    github: "https://github.com/Kaushlendra-pal",
     demo: "https://vercel.com",
   },
   {
-    title: "Emotion Detection AI",
+    title: "Headless WordPress Site",
     description:
-      "Multimodal inference pipeline with guardrails, evaluation dashboards, and human-in-the-loop review.",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80",
-    tech: ["Python", "React", "REST APIs"],
-    github: "https://github.com",
+      "Decoupled CMS architecture with WordPress as the backend and Next.js powering a blazing-fast front end.",
+    image: "",
+    tech: ["WordPress", "Next.js", "REST APIs"],
+    github: "https://github.com/Kaushlendra-pal",
     demo: "https://vercel.com",
   },
   {
     title: "Portfolio Dashboard",
     description:
-      "Unified analytics cockpit combining revenue, engagement, and infra signals with drill-down views.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-    tech: ["Next.js", "Tailwind", "Charts"],
-    github: "https://github.com",
+      "Unified analytics cockpit combining contact submissions, user tracking, and admin management.",
+    image: "",
+    tech: ["Next.js", "Tailwind", "Laravel"],
+    github: "https://github.com/Kaushlendra-pal",
     demo: "https://vercel.com",
   },
 ] as const;
@@ -161,10 +179,10 @@ export const WHY_FEATURES: WhyFeature[] = [
     icon: Zap,
   },
   {
-    title: "SEO Friendly Development",
+    title: "SEO-First Development",
     description:
-      "Structured metadata, performance budgets, and crawl-ready markup baked into every release.",
-    icon: Globe,
+      "Structured metadata, Core Web Vitals, schema markup, and crawl-ready markup baked into every release.",
+    icon: Search,
   },
   {
     title: "Fully Responsive Design",
@@ -189,17 +207,17 @@ export const WHY_FEATURES: WhyFeature[] = [
 export const TIMELINE = [
   {
     date: "2024 — Present",
-    role: "Full Stack Developer",
-    org: "NovaLabs",
+    role: "WordPress & Next.js Developer",
+    org: "Freelance",
     description:
-      "Leading feature squads across Next.js apps, Node services, and ML-powered workflows.",
+      "Building headless WordPress, Next.js landing pages, REST APIs, and plugin implementations for clients worldwide.",
   },
   {
     date: "Summer 2023",
     role: "Software Engineering Intern",
-    org: "Orbit AI",
+    org: "Tech Startup",
     description:
-      "Shipped internal tooling for model evaluation pipelines and customer-facing analytics.",
+      "Shipped internal tooling and customer-facing analytics dashboards using React and Laravel.",
   },
   {
     date: "2023",
@@ -211,7 +229,7 @@ export const TIMELINE = [
   {
     date: "2022",
     role: "Hackathon Winner — Best UX",
-    org: "Flowstack Build Week",
+    org: "Build Week",
     description:
       "Collaborative sprint delivering a zero-setup onboarding experience for SaaS teams.",
   },
@@ -220,7 +238,7 @@ export const TIMELINE = [
     role: "Open Source Contributor",
     org: "Community Projects",
     description:
-      "Documentation improvements and accessibility fixes across popular React ecosystem libraries.",
+      "Documentation improvements and accessibility fixes across popular React and WordPress ecosystem libraries.",
   },
 ] as const;
 
@@ -228,8 +246,7 @@ export const TESTIMONIALS = [
   {
     name: "Amelia Chen",
     role: "Product Lead, MintPay",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
     quote:
       "Shipping velocity doubled once we partnered—instrumentation, polish, and calm communication throughout.",
     rating: 5,
@@ -237,8 +254,7 @@ export const TESTIMONIALS = [
   {
     name: "Marcus Reid",
     role: "Founder, Vertex Studio",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
     quote:
       "The dashboard feels like a flagship SaaS product. Investors specifically called out the UX quality.",
     rating: 5,
@@ -246,8 +262,7 @@ export const TESTIMONIALS = [
   {
     name: "Priya Desai",
     role: "CTO, CloudNest",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80",
     quote:
       "API design was airtight—integrations that used to take weeks now ship in days.",
     rating: 5,
@@ -258,11 +273,11 @@ export const PRICING = [
   {
     name: "Basic Plan",
     price: "$899",
-    description: "Perfect for MVPs and focused landing experiences.",
+    description: "Perfect for landing pages and focused web experiences.",
     features: [
       "Up to 5 responsive pages",
-      "CMS-ready content blocks",
-      "Performance & accessibility pass",
+      "WordPress or Next.js",
+      "On-page SEO optimisation",
       "14-day delivery window",
     ],
     cta: "Start Basic",
@@ -274,9 +289,9 @@ export const PRICING = [
     description: "Full product surfaces with integrations and analytics.",
     features: [
       "Up to 12 screens / flows",
-      "Auth + payments wiring guidance",
-      "REST API + webhook hooks",
-      "Framer Motion polish throughout",
+      "Headless WordPress + Next.js",
+      "REST API or Laravel backend",
+      "Plugin implementation included",
     ],
     cta: "Choose Standard",
     highlighted: true,
@@ -286,9 +301,9 @@ export const PRICING = [
     price: "Custom",
     description: "Dedicated partnership for teams scaling globally.",
     features: [
-      "Embedded squad workflows",
+      "Full automation workflows",
       "CI/CD + infra recommendations",
-      "AI feature prototyping",
+      "Advanced SEO & Core Web Vitals",
       "Priority communication channel",
     ],
     cta: "Book Strategy Call",
@@ -300,27 +315,27 @@ export const FAQ_ITEMS = [
   {
     question: "How long does a project take?",
     answer:
-      "Landing experiences typically ship in 2–4 weeks, while multi-surface products land between 6–10 weeks depending on integrations. You'll receive a milestone roadmap before kickoff.",
+      "Landing pages typically ship in 1–2 weeks, WordPress sites in 2–4 weeks, and full-stack apps in 6–10 weeks depending on integrations. You'll receive a milestone roadmap before kickoff.",
   },
   {
     question: "Do you provide revisions?",
     answer:
-      "Yes—each engagement includes structured revision rounds tied to milestones so feedback stays organized and timelines stay predictable.",
+      "Yes—each engagement includes structured revision rounds tied to milestones so feedback stays organised and timelines stay predictable.",
   },
   {
-    question: "Do you deploy websites?",
+    question: "Do you build headless WordPress sites?",
     answer:
-      "Deployments to Vercel, Render, AWS, or Dockerized stacks are supported with environment parity checks and smoke testing.",
+      "Absolutely. I decouple WordPress as a headless CMS and pair it with a Next.js frontend for maximum performance, SEO scores, and developer experience.",
   },
   {
     question: "Which technologies do you use?",
     answer:
-      "Primarily Next.js, React, Tailwind CSS, Node.js, Express, MongoDB, MySQL, Firebase, WordPress, and Python—always aligned with your stack preferences.",
+      "Primarily Next.js, React, WordPress, Laravel, Tailwind CSS, Node.js, REST APIs, MySQL, and MongoDB—always aligned with your stack preferences.",
   },
 ] as const;
 
 export const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Fiverr", href: "https://fiverr.com" },
+  { label: "GitHub",   href: "https://github.com/Kaushlendra-pal" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/kaushlendra-pal-42a400251" },
+  { label: "Fiverr",   href: "https://fiverr.com" },
 ] as const;

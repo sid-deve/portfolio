@@ -18,35 +18,42 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"),
   title: {
-    default: "Studio.dev — Full Stack Developer Portfolio",
-    template: "%s — Studio.dev",
+    default: "<SK/> — WordPress & Next.js Developer",
+    template: "%s — SK Dev",
   },
   description:
-    "Premium full stack developer specializing in Next.js, React, Node.js, and AI-ready web platforms. SaaS-grade UX, secure APIs, and rapid delivery.",
+    "Siddharth Yadav — Full stack developer specialising in Next.js, WordPress, React, Node.js, and AI-ready web platforms. SaaS-grade UX, secure APIs, rapid delivery.",
   keywords: [
+    "Siddharth Yadav",
+    "SK Developer",
     "Full Stack Developer",
-    "Next.js",
+    "WordPress Developer",
+    "Next.js Developer",
     "React",
     "Tailwind CSS",
-    "Framer Motion",
     "Portfolio",
-    "SaaS",
-    "Startup",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
-    title: "Studio.dev — Full Stack Developer Portfolio",
+    title: "<SK/> — WordPress & Next.js Developer",
     description:
-      "Dark-mode startup portfolio showcasing services, projects, pricing, and contact.",
+      "Siddharth Yadav — full stack portfolio showcasing services, projects, pricing, and contact.",
     type: "website",
     locale: "en_US",
     url: "https://your-domain.com",
-    siteName: "Studio.dev",
+    siteName: "SK Dev",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Studio.dev — Full Stack Developer Portfolio",
+    title: "<SK/> — WordPress & Next.js Developer",
     description:
-      "Premium startup-style portfolio for a full stack engineer shipping resilient web products.",
+      "Siddharth Yadav — full stack engineer shipping resilient WordPress & Next.js products.",
   },
   robots: {
     index: true,
