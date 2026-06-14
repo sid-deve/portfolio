@@ -52,10 +52,8 @@ if (!g.__users)    g.__users    = [];
 function fsRead<T>(file: string, fallback: T): T {
   try {
     // Dynamic require so bundlers don't try to include `fs` in Edge chunks
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const fs   = require("fs")   as typeof import("fs");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const path = require("path") as typeof import("path");
+    const fs   = require("fs")   as typeof import("fs");   // eslint-disable-line
+    const path = require("path") as typeof import("path"); // eslint-disable-line
     const full = path.join(process.cwd(), "data", file);
     if (!fs.existsSync(full)) return fallback;
     return JSON.parse(fs.readFileSync(full, "utf-8")) as T;
@@ -66,10 +64,8 @@ function fsRead<T>(file: string, fallback: T): T {
 
 function fsWrite(file: string, data: unknown): void {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const fs   = require("fs")   as typeof import("fs");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const path = require("path") as typeof import("path");
+    const fs   = require("fs")   as typeof import("fs");   // eslint-disable-line
+    const path = require("path") as typeof import("path"); // eslint-disable-line
     const dir  = path.join(process.cwd(), "data");
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, file), JSON.stringify(data, null, 2), "utf-8");
