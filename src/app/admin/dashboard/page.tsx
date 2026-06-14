@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 import {
   LayoutDashboard,
   Mail,

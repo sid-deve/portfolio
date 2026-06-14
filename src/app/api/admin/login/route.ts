@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { ADMIN_EMAIL, ADMIN_PASSWORD_HASH, signToken, setAdminCookie } from "@/lib/auth";
 
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => ({}));
   const { email, password } = body as { email?: string; password?: string };

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { addContact } from "@/lib/db";
 
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => ({})) as {
     name?: string;

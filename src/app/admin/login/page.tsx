@@ -2,6 +2,8 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { SKLogo } from "@/components/ui/SKLogo";
 
