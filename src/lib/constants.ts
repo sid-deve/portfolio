@@ -21,17 +21,6 @@ export const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
-export const BRANDS = [
-  "NovaLabs",
-  "Orbit AI",
-  "Flowstack",
-  "PixelForge",
-  "CloudNest",
-  "DataPulse",
-  "MintPay",
-  "Vertex",
-];
-
 export type ServiceItem = {
   title: string;
   description: string;
@@ -206,39 +195,25 @@ export const WHY_FEATURES: WhyFeature[] = [
 
 export const TIMELINE = [
   {
-    date: "2024 — Present",
-    role: "WordPress & Next.js Developer",
-    org: "Freelance",
+    date: "2025 — Present",
+    role: "Independent Full Stack Partner",
+    org: "Freelance · Remote",
     description:
-      "Building headless WordPress, Next.js landing pages, REST APIs, and plugin implementations for clients worldwide.",
+      "Helping founders and growing brands ship production websites and web apps—Next.js, WordPress, Laravel, and Node.js—with clear milestones, fast iteration, and launch-ready polish.",
   },
   {
-    date: "Summer 2023",
-    role: "Software Engineering Intern",
-    org: "Tech Startup",
+    date: "2025",
+    role: "Conversion Landing Pages",
+    org: "Startups & service businesses",
     description:
-      "Shipped internal tooling and customer-facing analytics dashboards using React and Laravel.",
+      "Designed and built high-speed landing pages that turn traffic into booked calls—tight copy hierarchy, mobile-first layouts, SEO metadata, and analytics wired from day one.",
   },
   {
-    date: "2023",
-    role: "AWS Cloud Practitioner",
-    org: "Amazon Web Services",
+    date: "2024 — 2025",
+    role: "Headless WordPress Builds",
+    org: "Content-led brands",
     description:
-      "Certification covering cloud fundamentals, billing, security, and core AWS services.",
-  },
-  {
-    date: "2022",
-    role: "Hackathon Winner — Best UX",
-    org: "Build Week",
-    description:
-      "Collaborative sprint delivering a zero-setup onboarding experience for SaaS teams.",
-  },
-  {
-    date: "2021",
-    role: "Open Source Contributor",
-    org: "Community Projects",
-    description:
-      "Documentation improvements and accessibility fixes across popular React and WordPress ecosystem libraries.",
+      "Decoupled WordPress as a CMS from Next.js front ends so editors keep an easy workflow while customers get flagship speed, Core Web Vitals, and modern UI.",
   },
 ] as const;
 

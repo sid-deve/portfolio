@@ -14,7 +14,6 @@ import { Services } from "@/components/sections/Services";
 import { TechStack } from "@/components/sections/TechStack";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Timeline } from "@/components/sections/Timeline";
-import { TrustedBy } from "@/components/sections/TrustedBy";
 import { WhyChoose } from "@/components/sections/WhyChoose";
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
         <Navbar />
         <main>
           <Hero />
-          <TrustedBy />
           <Services />
           <About />
           <TechStack />

@@ -1,26 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Layout, Package, Search, Server, Settings, Zap } from "lucide-react";
+import { Boxes, Globe, Layout, Package, Search, Server, Settings, Zap } from "lucide-react";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SKLogo } from "@/components/ui/SKLogo";
 
 const STATS = [
-  { label: "Projects Completed", value: 48, suffix: "+" },
-  { label: "Years Experience", value: 5, suffix: "+" },
-  { label: "Happy Clients", value: 32, suffix: "+" },
-  { label: "Technologies Used", value: 18, suffix: "+" },
+  { label: "Projects Completed", value: 5, suffix: "+" },
+  { label: "Years Experience", value: 2, },
+  { label: "Technologies Used", value: 10, suffix: "+" },
 ];
 
 const SKILLS = [
   { icon: Globe,   label: "Next.js & React",      color: "text-violet-400",  bg: "bg-violet-500/10 border-violet-500/20"  },
   { icon: Globe,   label: "WordPress",             color: "text-sky-400",     bg: "bg-sky-500/10 border-sky-500/20"        },
+  { icon: Server,  label: "Laravel",               color: "text-rose-400",    bg: "bg-rose-500/10 border-rose-500/20"      },
+  { icon: Boxes,   label: "Node.js",               color: "text-green-400",   bg: "bg-green-500/10 border-green-500/20"    },
   { icon: Layout,  label: "Landing Pages",         color: "text-fuchsia-400", bg: "bg-fuchsia-500/10 border-fuchsia-500/20"},
   { icon: Package, label: "Plugin Implementation", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/20"},
   { icon: Search,  label: "SEO Optimisation",      color: "text-amber-400",   bg: "bg-amber-500/10 border-amber-500/20"    },
-  { icon: Server,  label: "REST APIs & Laravel",   color: "text-rose-400",    bg: "bg-rose-500/10 border-rose-500/20"      },
+  { icon: Server,  label: "REST APIs",             color: "text-orange-400",  bg: "bg-orange-500/10 border-orange-500/20"  },
   { icon: Settings,label: "Automation",            color: "text-cyan-400",    bg: "bg-cyan-500/10 border-cyan-500/20"      },
   { icon: Zap,     label: "Headless Websites",     color: "text-lime-400",    bg: "bg-lime-500/10 border-lime-500/20"      },
 ];
@@ -59,7 +60,7 @@ export function About() {
                   </div>
                   <div>
                     <p className="text-xl font-bold text-white">Kaushlendra Pal</p>
-                    <p className="text-sm text-zinc-400">WordPress &amp; Next.js Developer</p>
+                    <p className="text-sm text-zinc-400">Full Stack Developer</p>
                     <p className="mt-1 text-xs text-emerald-400 font-medium">● Available now</p>
                   </div>
                 </div>

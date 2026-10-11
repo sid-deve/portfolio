@@ -12,8 +12,8 @@ export function Timeline() {
         <SectionHeading
           id="timeline-heading"
           eyebrow="Journey"
-          title="Experience & milestones"
-          subtitle="A curated timeline—roles, internships, certifications, and standout moments from the field."
+          title="Freelance work that ships"
+          subtitle="Client-facing delivery—websites, product surfaces, and retainers built for founders who need momentum, not a learning curve."
         />
 
         <div className="relative">

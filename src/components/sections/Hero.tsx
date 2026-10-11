@@ -110,9 +110,9 @@ export function Hero() {
             className="grid gap-4 sm:grid-cols-3"
           >
             {[
-              { label: "Projects Completed", value: "48+" },
-              { label: "Technologies", value: "18+" },
-              { label: "Years Experience", value: "5+" },
+              { label: "Projects Completed", value: "5+" },
+              { label: "Technologies", value: "10+" },
+              { label: "Years Experience", value: "1.5+" },
             ].map((stat) => (
               <GlassCard
                 key={stat.label}
@@ -206,27 +206,26 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 rounded-full border border-white/15 bg-[rgb(10,12,24)]/90 px-4 py-2 shadow-xl backdrop-blur-md whitespace-nowrap"
           >
-            <SKIcon size={22} />
-            <div className="text-left">
+            {/* <SKIcon size={22} /> */}
+            {/* <div className="text-left">
               <p className="text-xs font-semibold text-white">Kaushlendra Pal</p>
               <p className="text-[10px] text-zinc-500">WordPress &amp; Next.js Developer</p>
-            </div>
+            </div> */}
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             aria-hidden
             className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-violet-500/35 blur-3xl"
             animate={{ opacity: [0.35, 0.6, 0.35], scale: [1, 1.08, 1] }}
             transition={{ duration: 10, repeat: Infinity }}
-          />
-          <motion.div
+          /> */}
+          {/* <motion.div
             aria-hidden
             className="absolute -right-12 bottom-4 h-44 w-44 rounded-full bg-sky-400/25 blur-3xl"
             animate={{ opacity: [0.25, 0.45, 0.25], y: [0, 18, 0] }}
             transition={{ duration: 11, repeat: Infinity }}
-          />
+          /> */}
         </motion.div>
       </div>
     </section>
