@@ -39,7 +39,7 @@ export function SKLogo({
       viewBox={`0 0 ${w} ${totalH}`}
       width={w}
       height={totalH}
-      aria-label="SK Logo — WordPress & Next.js Developer"
+      aria-label="SK Logo — Full Stack Developer"
       role="img"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ export function SKLogo({
           textAnchor="middle"
           letterSpacing="0.5"
         >
-          WordPress &amp; Next.js Developer
+          Full Stack Developer
         </text>
       )}
     </svg>

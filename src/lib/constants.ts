@@ -1,17 +1,24 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  Briefcase,
   Code2,
   Database,
+  Facebook,
+  Github,
   Globe,
+  Instagram,
   Layers,
   LayoutDashboard,
+  Linkedin,
   MonitorSmartphone,
   Package,
   Search,
   Server,
   Settings,
+  Youtube,
   Zap,
 } from "lucide-react";
+import { XLogo } from "@/components/ui/BrandIcons";
 
 export const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -195,94 +202,25 @@ export const WHY_FEATURES: WhyFeature[] = [
 
 export const TIMELINE = [
   {
-    date: "2025 — Present",
+    date: "2024 - 2025",
     role: "Independent Full Stack Partner",
     org: "Freelance · Remote",
     description:
       "Helping founders and growing brands ship production websites and web apps—Next.js, WordPress, Laravel, and Node.js—with clear milestones, fast iteration, and launch-ready polish.",
   },
   {
-    date: "2025",
+    date: "2025 - 2026",
     role: "Conversion Landing Pages",
     org: "Startups & service businesses",
     description:
       "Designed and built high-speed landing pages that turn traffic into booked calls—tight copy hierarchy, mobile-first layouts, SEO metadata, and analytics wired from day one.",
   },
   {
-    date: "2024 — 2025",
+    date: "2026 — Present",
     role: "Headless WordPress Builds",
     org: "Content-led brands",
     description:
       "Decoupled WordPress as a CMS from Next.js front ends so editors keep an easy workflow while customers get flagship speed, Core Web Vitals, and modern UI.",
-  },
-] as const;
-
-export const TESTIMONIALS = [
-  {
-    name: "Amelia Chen",
-    role: "Product Lead, MintPay",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    quote:
-      "Shipping velocity doubled once we partnered—instrumentation, polish, and calm communication throughout.",
-    rating: 5,
-  },
-  {
-    name: "Marcus Reid",
-    role: "Founder, Vertex Studio",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    quote:
-      "The dashboard feels like a flagship SaaS product. Investors specifically called out the UX quality.",
-    rating: 5,
-  },
-  {
-    name: "Priya Desai",
-    role: "CTO, CloudNest",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80",
-    quote:
-      "API design was airtight—integrations that used to take weeks now ship in days.",
-    rating: 5,
-  },
-] as const;
-
-export const PRICING = [
-  {
-    name: "Basic Plan",
-    price: "$899",
-    description: "Perfect for landing pages and focused web experiences.",
-    features: [
-      "Up to 5 responsive pages",
-      "WordPress or Next.js",
-      "On-page SEO optimisation",
-      "14-day delivery window",
-    ],
-    cta: "Start Basic",
-    highlighted: false,
-  },
-  {
-    name: "Standard Plan",
-    price: "$2,400",
-    description: "Full product surfaces with integrations and analytics.",
-    features: [
-      "Up to 12 screens / flows",
-      "Headless WordPress + Next.js",
-      "REST API or Laravel backend",
-      "Plugin implementation included",
-    ],
-    cta: "Choose Standard",
-    highlighted: true,
-  },
-  {
-    name: "Premium Plan",
-    price: "Custom",
-    description: "Dedicated partnership for teams scaling globally.",
-    features: [
-      "Full automation workflows",
-      "CI/CD + infra recommendations",
-      "Advanced SEO & Core Web Vitals",
-      "Priority communication channel",
-    ],
-    cta: "Book Strategy Call",
-    highlighted: false,
   },
 ] as const;
 
@@ -307,10 +245,35 @@ export const FAQ_ITEMS = [
     answer:
       "Primarily Next.js, React, WordPress, Laravel, Tailwind CSS, Node.js, REST APIs, MySQL, and MongoDB—always aligned with your stack preferences.",
   },
+  {
+    question: "How much does a project cost?",
+    answer:
+      "Projects typically range from $150–$200 for focused landing pages and scale with scope, integrations, and backend complexity. You get a fixed, transparent quote upfront—no hourly surprises—so you can budget with confidence before we kick off.",
+  },
+  {
+    question: "Why hire you instead of an agency?",
+    answer:
+      "You work directly with me—no account managers, no hand-offs. That means faster decisions, senior-level code on every line, and SaaS-grade polish at a fraction of agency overhead, backed by clear milestones and honest communication.",
+  },
+  {
+    question: "Will my site be fast, SEO-ready, and mobile-friendly?",
+    answer:
+      "Always. Every build ships with Core Web Vitals in mind—clean semantic markup, optimised images, responsive layouts, and on-page SEO so your site ranks well and converts visitors into clients from day one.",
+  },
 ] as const;
 
-export const SOCIAL_LINKS = [
-  { label: "GitHub",   href: "https://github.com/Kaushlendra-pal" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/kaushlendra-pal-42a400251" },
-  { label: "Fiverr",   href: "https://fiverr.com" },
-] as const;
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: LucideIcon | typeof XLogo;
+};
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  { label: "GitHub",    href: "https://github.com/Kaushlendra-pal", icon: Github },
+  { label: "LinkedIn",  href: "https://linkedin.com/in/kaushlendra-pal-42a400251", icon: Linkedin },
+  { label: "Fiverr",    href: "https://fiverr.com", icon: Briefcase },
+  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
+  { label: "Facebook",  href: "https://facebook.com", icon: Facebook },
+  { label: "X",         href: "https://x.com", icon: XLogo },
+  { label: "YouTube",   href: "https://www.youtube.com/@animation_world6389", icon: Youtube },
+];

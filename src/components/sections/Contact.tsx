@@ -1,18 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Github, Linkedin, Mail, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-
-const iconMap = {
-  GitHub: Github,
-  LinkedIn: Linkedin,
-  Fiverr: Briefcase,
-} as const;
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -74,7 +68,8 @@ export function Contact() {
               <div>
                 <h3 className="text-xl font-semibold text-white">Direct channels</h3>
                 <p className="mt-2 text-sm text-zinc-400">
-                  Prefer async? Email works beautifully—include links, briefs, or Looms for context.
+                  Prefer async? Email is the fastest way to get a quote—send your brief, goals, or a
+                  quick Loom and I&apos;ll reply within one business day with clear next steps.
                 </p>
               </div>
               <Link
@@ -86,7 +81,7 @@ export function Contact() {
               </Link>
               <div className="flex flex-wrap gap-3">
                 {SOCIAL_LINKS.map((social) => {
-                  const Icon = iconMap[social.label as keyof typeof iconMap] ?? Send;
+                  const Icon = social.icon;
                   return (
                     <Link
                       key={social.label}

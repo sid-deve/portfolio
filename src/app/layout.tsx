@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"),
   title: {
-    default: "<SK/> — WordPress & Next.js Developer",
+    default: "<SK/> — Full Stack Developer",
     template: "%s — SK Dev",
   },
   description:
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "<SK/> — WordPress & Next.js Developer",
+    title: "<SK/> — Full Stack Developer",
     description:
-      "Siddharth Yadav — full stack portfolio showcasing services, projects, pricing, and contact.",
+      "Siddharth Yadav — full stack portfolio showcasing services, projects, and contact.",
     type: "website",
     locale: "en_US",
     url: "https://your-domain.com",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "<SK/> — WordPress & Next.js Developer",
+    title: "<SK/> — Full Stack Developer",
     description:
       "Siddharth Yadav — full stack engineer shipping resilient WordPress & Next.js products.",
   },

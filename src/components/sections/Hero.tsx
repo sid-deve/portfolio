@@ -210,7 +210,7 @@ export function Hero() {
             {/* <SKIcon size={22} /> */}
             {/* <div className="text-left">
               <p className="text-xs font-semibold text-white">Kaushlendra Pal</p>
-              <p className="text-[10px] text-zinc-500">WordPress &amp; Next.js Developer</p>
+              <p className="text-[10px] text-zinc-500">Full Stack Developer</p>
             </div> */}
           </motion.div>
 

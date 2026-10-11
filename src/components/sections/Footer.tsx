@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowUp, Download, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import { NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 import { SKLogo } from "@/components/ui/SKLogo";
@@ -19,7 +19,7 @@ export function Footer() {
             <SKLogo size="md" showTagline />
           </Link>
           <p className="max-w-xs text-sm text-zinc-400 leading-relaxed">
-            Premium full stack engineering for teams that want SaaS polish without enterprise drag.
+            Full stack developer crafting high-converting websites &amp; SaaS-grade web apps with Next.js, React, WordPress &amp; Node.js—fast delivery, agency polish, no enterprise overhead.
           </p>
 
           {/* Contact details */}
@@ -86,10 +86,7 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-zinc-300">
               {SOCIAL_LINKS.map((link) => {
-                const Icon =
-                  link.label === "GitHub" ? Github :
-                  link.label === "LinkedIn" ? Linkedin :
-                  null;
+                const Icon = link.icon;
                 return (
                   <li key={link.label}>
                     <Link
@@ -98,7 +95,7 @@ export function Footer() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 transition-colors hover:text-white"
                     >
-                      {Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
+                      <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden />
                       {link.label}
                     </Link>
                   </li>
@@ -111,27 +108,10 @@ export function Footer() {
               Colophon
             </p>
             <p className="text-xs leading-relaxed text-zinc-500">
-              Crafted with Next.js App Router, Tailwind CSS, Framer Motion, and Lucide icons.
+              Built on the same modern stack I use for client work—Next.js App Router, React, Tailwind CSS, Framer Motion & SEO-ready performance.
             </p>
           </div>
         </nav>
-      </div>
-
-      <div className="mx-auto mt-12 max-w-6xl border-t border-white/10 px-4 pt-8 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-3 text-xs text-zinc-500 sm:flex-row">
-          <p>© {new Date().getFullYear()} Kaushlendra Pal. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            <Mail className="h-3 w-3" />
-            <a href="mailto:yadavsid50k@gmail.com" className="hover:text-zinc-300 transition-colors">
-              yadavsid50k@gmail.com
-            </a>
-            <span className="mx-2 text-zinc-700">·</span>
-            <Phone className="h-3 w-3" />
-            <a href="tel:+918808841721" className="hover:text-zinc-300 transition-colors">
-              +91 88088 41721
-            </a>
-          </p>
-        </div>
       </div>
     </footer>
   );
