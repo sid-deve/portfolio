@@ -32,8 +32,8 @@ export function WhyChoose() {
                       <feature.icon className="h-5 w-5" aria-hidden />
                     </span>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{feature.description}</p>
+                      <h3 className="text-lg font-semibold t-heading">{feature.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed t-muted">{feature.description}</p>
                     </div>
                   </div>
                 </GlassCard>

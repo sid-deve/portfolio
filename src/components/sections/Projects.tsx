@@ -29,7 +29,7 @@ export function Projects() {
           subtitle="Production-ready builds spanning portals, AI tooling, and analytics—a snapshot of recent engagements."
         />
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-5 lg:grid-cols-2">
           {PROJECTS.map((project, index) => (
             <motion.article
               key={project.title}
@@ -39,69 +39,60 @@ export function Projects() {
               transition={{ delay: index * 0.06, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="gradient-border"
             >
-              <GlassCard className="group overflow-hidden rounded-[1.1rem] p-0 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(139,92,246,0.22)]">
-                {/* Gradient hero instead of image */}
-                <div className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${PROJECT_GRADIENTS[index % PROJECT_GRADIENTS.length]}`}>
-                  {/* Decorative grid overlay */}
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.04)_1px,transparent_1px)] bg-[size:32px_32px]" />
-
-                  {/* Glow orbs */}
-                  <div className="absolute -left-8 -top-8 h-40 w-40 rounded-full bg-white/5 blur-3xl" />
-                  <div className="absolute -bottom-8 -right-8 h-40 w-40 rounded-full bg-white/5 blur-3xl" />
-
-                  {/* Center icon */}
+              <GlassCard className="group overflow-hidden rounded-[1.1rem] p-0 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(139,92,246,0.18)]">
+                {/* Gradient hero */}
+                <div className={`relative aspect-[16/7] overflow-hidden bg-gradient-to-br ${PROJECT_GRADIENTS[index % PROJECT_GRADIENTS.length]}`}>
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.04)_1px,transparent_1px)] bg-[size:28px_28px]" />
+                  <div className="absolute -left-6 -top-6 h-32 w-32 rounded-full bg-white/5 blur-3xl" />
+                  <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-white/5 blur-3xl" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex flex-col items-center gap-3">
-                      <span className="text-5xl" role="img" aria-label={project.title}>
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-4xl" role="img" aria-label={project.title}>
                         {PROJECT_ICONS[index % PROJECT_ICONS.length]}
                       </span>
-                      <span className="rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-semibold text-white/70 backdrop-blur">
+                      <span className="rounded-full border border-white/20 bg-black/30 px-2.5 py-0.5 text-xs font-semibold text-white/70 backdrop-blur">
                         {project.tech[0]}
                       </span>
                     </div>
                   </div>
-
-                  {/* Bottom fade */}
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
 
-                <div className="space-y-4 p-6 sm:p-7">
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                      <p className="mt-2 max-w-prose text-sm leading-relaxed text-zinc-400">
-                        {project.description}
-                      </p>
-                    </div>
+                <div className="space-y-3 p-4 sm:p-5">
+                  <div>
+                    <h3 className="text-base font-semibold t-heading">{project.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed t-muted">
+                      {project.description}
+                    </p>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-200"
+                        className="rounded-full border b-subtle bg-card px-2.5 py-0.5 text-xs font-medium t-label"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="flex flex-wrap gap-2 pt-1">
                     <Link
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-white/25 hover:bg-white/10 sm:flex-none"
+                      className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border b-default bg-card px-3 py-1.5 text-xs font-semibold t-heading transition-colors hover:bg-white/10 sm:flex-none"
                     >
-                      <Github className="h-4 w-4" aria-hidden />
+                      <Github className="h-3.5 w-3.5" aria-hidden />
                       GitHub
                     </Link>
                     <Link
                       href={project.demo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-sky-400 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-transform hover:scale-[1.02] sm:flex-none"
+                      className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-sky-400 px-3 py-1.5 text-xs font-semibold text-white shadow-md shadow-violet-500/20 transition-transform hover:scale-[1.02] sm:flex-none"
                     >
                       Live Demo
-                      <ArrowUpRight className="h-4 w-4" aria-hidden />
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
                     </Link>
                   </div>
                 </div>

@@ -10,6 +10,15 @@
   color-scheme: dark;
 }
 
+/* ── Light theme overrides ── */
+html.light {
+  --surface: 243 244 250;
+  --surface-elevated: 255 255 255;
+  --accent: 109 40 217;
+  --accent-muted: 14 165 233;
+  color-scheme: light;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -18,19 +27,66 @@ body {
   @apply min-h-screen bg-[rgb(var(--surface))] text-zinc-100 antialiased;
 }
 
+html.light body {
+  @apply text-zinc-900;
+}
+
 ::selection {
   @apply bg-violet-500/40 text-white;
 }
+html.light ::selection {
+  @apply bg-violet-400/40 text-violet-900;
+}
 
+/* ─────────────────────────────────────────
+   Semantic theme-aware utility classes
+   Use these instead of raw text-white etc.
+───────────────────────────────────────── */
 @layer utilities {
+
+  /* Text */
+  .t-heading   { @apply text-white; }
+  .t-body      { @apply text-zinc-300; }
+  .t-muted     { @apply text-zinc-400; }
+  .t-subtle    { @apply text-zinc-500; }
+  .t-label     { @apply text-zinc-200; }
+
+  html.light .t-heading  { @apply text-zinc-900; }
+  html.light .t-body     { @apply text-zinc-700; }
+  html.light .t-muted    { @apply text-zinc-500; }
+  html.light .t-subtle   { @apply text-zinc-400; }
+  html.light .t-label    { @apply text-zinc-700; }
+
+  /* Borders */
+  .b-subtle  { @apply border-white/10; }
+  .b-default { @apply border-white/15; }
+
+  html.light .b-subtle  { @apply border-zinc-200; }
+  html.light .b-default { @apply border-zinc-300; }
+
+  /* Surface fills */
+  .bg-card  { @apply bg-white/5; }
+  .bg-input { @apply bg-black/30; }
+
+  html.light .bg-card  { @apply bg-white/80; }
+  html.light .bg-input { @apply bg-white; }
+
+  /* Glass */
   .glass {
     @apply border border-white/10 bg-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl;
+  }
+  html.light .glass {
+    @apply border-zinc-200 bg-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.08)];
   }
 
   .glass-strong {
     @apply border border-white/15 bg-white/[0.08] shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl;
   }
+  html.light .glass-strong {
+    @apply border-zinc-200 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)];
+  }
 
+  /* Gradient border — stays same both modes */
   .gradient-border {
     @apply relative rounded-2xl p-[1px];
     background: linear-gradient(
@@ -41,8 +97,12 @@ body {
     );
   }
 
+  /* Gradient text — deeper in light mode */
   .gradient-text {
     @apply bg-gradient-to-r from-violet-300 via-sky-300 to-fuchsia-300 bg-clip-text text-transparent;
+  }
+  html.light .gradient-text {
+    @apply from-violet-600 via-sky-500 to-fuchsia-600;
   }
 
   .noise-overlay {

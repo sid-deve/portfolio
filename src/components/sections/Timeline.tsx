@@ -36,12 +36,12 @@ export function Timeline() {
                   <span className="h-2 w-2 rounded-full bg-gradient-to-br from-violet-400 to-sky-300" />
                 </span>
                 <GlassCard className="p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300/90">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
                     {entry.date}
                   </p>
-                  <h3 className="mt-2 text-lg font-semibold text-white">{entry.role}</h3>
-                  <p className="text-sm font-medium text-zinc-400">{entry.org}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{entry.description}</p>
+                  <h3 className="mt-2 text-lg font-semibold t-heading">{entry.role}</h3>
+                  <p className="text-sm font-medium t-muted">{entry.org}</p>
+                  <p className="mt-3 text-sm leading-relaxed t-muted">{entry.description}</p>
                 </GlassCard>
               </motion.li>
             ))}

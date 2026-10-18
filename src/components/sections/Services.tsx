@@ -54,8 +54,8 @@ export function Services() {
                       <service.icon className="h-6 w-6" aria-hidden />
                     </span>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">{service.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{service.description}</p>
+                      <h3 className="text-lg font-semibold t-heading">{service.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed t-muted">{service.description}</p>
                     </div>
                   </div>
                 </GlassCard>

@@ -31,9 +31,9 @@ export function FAQ() {
                   aria-expanded={open}
                   onClick={() => setOpenIndex(open ? null : index)}
                 >
-                  <span className="text-sm font-semibold text-white sm:text-base">{item.question}</span>
+                  <span className="text-sm font-semibold t-heading sm:text-base">{item.question}</span>
                   <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                    <ChevronDown className="h-5 w-5 shrink-0 text-zinc-400" aria-hidden />
+                    <ChevronDown className="h-5 w-5 shrink-0 t-muted" aria-hidden />
                   </motion.span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -44,7 +44,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <p className="border-t border-white/10 px-5 pb-5 pt-4 text-sm leading-relaxed text-zinc-400">
+                      <p className="border-t b-subtle px-5 pb-5 pt-4 text-sm leading-relaxed t-muted">
                         {item.answer}
                       </p>
                     </motion.div>

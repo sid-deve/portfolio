@@ -33,18 +33,18 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-300/90">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-400">
           {eyebrow}
         </p>
       ) : null}
       <h2
         id={id}
-        className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl"
+        className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl"
       >
         <span className="gradient-text">{title}</span>
       </h2>
       {subtitle ? (
-        <p className="text-pretty text-base text-zinc-400 sm:text-lg">{subtitle}</p>
+        <p className="text-pretty text-base t-muted sm:text-lg">{subtitle}</p>
       ) : null}
     </motion.div>
   );

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -65,13 +66,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
-        <a
-          href="#home"
-          className="pointer-events-none fixed left-4 top-0 z-[100] -translate-y-24 rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 opacity-0 shadow-lg transition-all focus:pointer-events-auto focus:translate-y-4 focus:opacity-100"
-        >
-          Skip to content
-        </a>
-        {children}
+        <ThemeProvider>
+          <a
+            href="#home"
+            className="pointer-events-none fixed left-4 top-0 z-[100] -translate-y-24 rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 opacity-0 shadow-lg transition-all focus:pointer-events-auto focus:translate-y-4 focus:opacity-100"
+          >
+            Skip to content
+          </a>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

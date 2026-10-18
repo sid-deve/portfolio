@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { SOCIAL_LINKS } from "@/lib/constants";
@@ -66,20 +66,13 @@ export function Contact() {
           >
             <GlassCard className="space-y-6 p-8">
               <div>
-                <h3 className="text-xl font-semibold text-white">Direct channels</h3>
-                <p className="mt-2 text-sm text-zinc-400">
+                <h3 className="text-xl font-semibold t-heading">Direct channels</h3>
+                <p className="mt-2 text-sm t-muted">
                   Prefer async? Email is the fastest way to get a quote—send your brief, goals, or a
                   quick Loom and I&apos;ll reply within one business day with clear next steps.
                 </p>
               </div>
-              <Link
-                href="mailto:yadavsid50k@gmail.com"
-                className="inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white transition-colors hover:border-white/20 hover:bg-white/10"
-              >
-                <Mail className="h-5 w-5 text-sky-300" aria-hidden />
-                yadavsid50k@gmail.com
-              </Link>
-              <div className="flex flex-wrap gap-3">
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
                 {SOCIAL_LINKS.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -88,10 +81,12 @@ export function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-zinc-200 transition-colors hover:border-violet-400/40 hover:text-white"
+                      className="flex flex-col items-center gap-2.5 rounded-2xl border b-subtle bg-card px-3 py-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-violet-400/40 hover:shadow-lg"
                     >
-                      <Icon className="h-4 w-4" aria-hidden />
-                      {social.label}
+                      <span className={`flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ${social.color}`}>
+                        <Icon className="h-5 w-5" aria-hidden />
+                      </span>
+                      <span className="text-xs font-semibold t-label">{social.label}</span>
                     </Link>
                   );
                 })}
@@ -108,7 +103,7 @@ export function Contact() {
             <GlassCard strong className="p-8">
               <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-zinc-200">
+                  <label htmlFor="name" className="text-sm font-medium t-body">
                     Name
                   </label>
                   <input
@@ -116,12 +111,12 @@ export function Contact() {
                     name="name"
                     required
                     autoComplete="name"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
+                    className="w-full rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
                     placeholder="Jordan Lee"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-zinc-200">
+                  <label htmlFor="email" className="text-sm font-medium t-body">
                     Email
                   </label>
                   <input
@@ -130,12 +125,12 @@ export function Contact() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
+                    className="w-full rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
                     placeholder="you@company.com"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-zinc-200">
+                  <label htmlFor="message" className="text-sm font-medium t-body">
                     Message
                   </label>
                   <textarea
@@ -143,7 +138,7 @@ export function Contact() {
                     name="message"
                     required
                     rows={5}
-                    className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
+                    className="w-full resize-none rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
                     placeholder="Share goals, timelines, and links..."
                   />
                 </div>

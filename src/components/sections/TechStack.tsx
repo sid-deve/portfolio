@@ -37,7 +37,7 @@ export function TechStack() {
             >
               <div className="flex flex-col items-center gap-3 rounded-[1rem] bg-[rgb(var(--surface-elevated)/0.65)] p-6 text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(56,189,248,0.12)]">
                 <TechLogo slug={tech.slug} name={tech.name} />
-                <p className="text-sm font-semibold text-white">{tech.name}</p>
+                <p className="text-sm font-semibold t-heading">{tech.name}</p>
               </div>
             </motion.li>
           ))}

@@ -1,29 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Boxes, Globe, Layout, Package, Search, Server, Settings, Zap } from "lucide-react";
+import { Boxes, Globe, Server, Zap } from "lucide-react";
+import Image from "next/image";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SKLogo } from "@/components/ui/SKLogo";
 
 const STATS = [
   { label: "Projects Completed", value: 5, suffix: "+" },
-  { label: "Years Experience", value: 2, },
+  { label: "Years Experience", value: 2 },
   { label: "Technologies Used", value: 10, suffix: "+" },
 ];
 
 const SKILLS = [
-  { icon: Globe,   label: "Next.js & React",      color: "text-violet-400",  bg: "bg-violet-500/10 border-violet-500/20"  },
-  { icon: Globe,   label: "WordPress",             color: "text-sky-400",     bg: "bg-sky-500/10 border-sky-500/20"        },
-  { icon: Server,  label: "Laravel",               color: "text-rose-400",    bg: "bg-rose-500/10 border-rose-500/20"      },
-  { icon: Boxes,   label: "Node.js",               color: "text-green-400",   bg: "bg-green-500/10 border-green-500/20"    },
-  { icon: Layout,  label: "Landing Pages",         color: "text-fuchsia-400", bg: "bg-fuchsia-500/10 border-fuchsia-500/20"},
-  { icon: Package, label: "Plugin Implementation", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/20"},
-  { icon: Search,  label: "SEO Optimisation",      color: "text-amber-400",   bg: "bg-amber-500/10 border-amber-500/20"    },
-  { icon: Server,  label: "REST APIs",             color: "text-orange-400",  bg: "bg-orange-500/10 border-orange-500/20"  },
-  { icon: Settings,label: "Automation",            color: "text-cyan-400",    bg: "bg-cyan-500/10 border-cyan-500/20"      },
-  { icon: Zap,     label: "Headless Websites",     color: "text-lime-400",    bg: "bg-lime-500/10 border-lime-500/20"      },
+  { icon: Globe,  label: "Next.js & React", color: "text-violet-400", bg: "bg-violet-500/10 border-violet-500/20" },
+  { icon: Globe,  label: "WordPress",       color: "text-sky-400",    bg: "bg-sky-500/10 border-sky-500/20"      },
+  { icon: Server, label: "Node.js & APIs",  color: "text-green-400",  bg: "bg-green-500/10 border-green-500/20"  },
+  { icon: Server, label: "Laravel",         color: "text-rose-400",   bg: "bg-rose-500/10 border-rose-500/20"    },
+  { icon: Boxes,  label: "SEO & Performance",color:"text-amber-400",  bg: "bg-amber-500/10 border-amber-500/20"  },
+  { icon: Zap,    label: "Headless & CMS",  color: "text-lime-400",   bg: "bg-lime-500/10 border-lime-500/20"    },
 ];
 
 export function About() {
@@ -37,8 +33,8 @@ export function About() {
           subtitle="I partner with startups and product teams to translate ambiguity into systems—balancing velocity, maintainability, and measurable outcomes."
         />
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* ── Left: visual identity card ── */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          {/* ── Left: photo card ── */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -47,62 +43,59 @@ export function About() {
             className="relative"
           >
             <div className="gradient-border">
-              <GlassCard strong className="overflow-hidden rounded-[1.1rem] p-6 sm:p-8">
-                {/* Logo + name */}
-                <div className="flex items-center gap-5 mb-8">
-                  <div className="relative shrink-0">
-                    <div className="rounded-2xl border border-sky-500/20 bg-black/60 px-3 py-2 shadow-xl shadow-sky-500/10">
-                      <SKLogo size="md" />
+              <GlassCard strong className="overflow-hidden rounded-[1.1rem] p-3">
+
+                {/* Full photo */}
+                <div className="relative w-full overflow-hidden rounded-[0.85rem]" style={{ aspectRatio: "3/4" }}>
+                  <Image
+                    src="/photo-about.jpeg"
+                    alt="Siddhartha Kumar — Full Stack Developer"
+                    fill
+                    priority
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+
+                  {/* Bottom gradient */}
+                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+                  {/* Name overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                    <div>
+                      <p className="text-lg font-bold text-white drop-shadow-lg">Siddhartha Kumar</p>
+                      <p className="text-sm text-zinc-300 drop-shadow">Full Stack Developer</p>
                     </div>
-                    <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-[rgb(10,12,24)] bg-emerald-400">
-                      <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping absolute" />
+                    <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-black/60 px-3 py-1.5 text-xs font-semibold text-emerald-400 backdrop-blur-md">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.9)]" />
+                      Available
                     </span>
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold text-white">Kaushlendra Pal</p>
-                    <p className="text-sm text-zinc-400">Full Stack Developer</p>
-                    <p className="mt-1 text-xs text-emerald-400 font-medium">● Available now</p>
                   </div>
                 </div>
 
-                {/* Skill chips */}
-                <div className="mb-8">
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Core expertise</p>
-                  <div className="flex flex-wrap gap-2">
+                {/* Core expertise */}
+                <div className="px-2 pt-5 pb-2">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-white/10 border border-white/20 rounded-md px-3 py-1.5 inline-block shadow-sm">
+                    Core Expertise
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-1">
                     {SKILLS.map(({ icon: Icon, label, color, bg }) => (
                       <span
                         key={label}
                         className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${bg}`}
                       >
                         <Icon className={`h-3.5 w-3.5 ${color}`} />
-                        <span className="text-zinc-200">{label}</span>
+                        <span className="t-label">{label}</span>
                       </span>
                     ))}
                   </div>
                 </div>
-
-                {/* Contact quick-links */}
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 mb-3">Contact</p>
-                  <a
-                    href="mailto:yadavsid50k@gmail.com"
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-200 transition-colors hover:border-violet-400/30 hover:bg-white/10"
-                  >
-                    <span className="text-violet-400">✉</span> yadavsid50k@gmail.com
-                  </a>
-                  <a
-                    href="tel:+918808841721"
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-zinc-200 transition-colors hover:border-sky-400/30 hover:bg-white/10"
-                  >
-                    <span className="text-sky-400">📞</span> +91 88088 41721
-                  </a>
-                </div>
               </GlassCard>
             </div>
 
+            {/* Ambient glow */}
             <motion.div
               aria-hidden
-              className="absolute -bottom-8 -right-6 hidden h-32 w-32 rounded-full bg-fuchsia-500/25 blur-3xl lg:block"
+              className="absolute -bottom-8 -right-6 hidden h-40 w-40 rounded-full bg-fuchsia-500/25 blur-3xl lg:block"
               animate={{ opacity: [0.35, 0.6, 0.35] }}
               transition={{ duration: 8, repeat: Infinity }}
             />
@@ -117,17 +110,17 @@ export function About() {
             className="space-y-6"
           >
             <GlassCard className="space-y-4 p-6 sm:p-8">
-              <p className="text-lg leading-relaxed text-zinc-300">
+              <p className="text-lg leading-relaxed t-body">
                 I&apos;m a full stack developer focused on WordPress &amp; Next.js—building
                 fast, headless sites, conversion-focused landing pages, and scalable REST APIs.
                 My process blends clean architecture with iterative delivery so clients stay
                 aligned from kickoff to launch.
               </p>
-              <p className="text-sm leading-relaxed text-zinc-400">
+              <p className="text-sm leading-relaxed t-muted">
                 Specialities include WordPress plugin implementation, Laravel backends, SEO
                 optimisation, and automation workflows that cut manual toil and keep data in sync.
               </p>
-              <p className="text-sm leading-relaxed text-zinc-400">
+              <p className="text-sm leading-relaxed t-muted">
                 I partner with startups and agencies on long-term engagements—mentoring,
                 codifying standards, and helping teams ship faster without sacrificing resilience.
               </p>
@@ -136,10 +129,10 @@ export function About() {
             <div className="grid gap-4 sm:grid-cols-2">
               {STATS.map((stat) => (
                 <GlassCard key={stat.label} className="p-5">
-                  <p className="text-3xl font-semibold text-white">
+                  <p className="text-3xl font-semibold t-heading">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </p>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-zinc-500">{stat.label}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wide t-subtle">{stat.label}</p>
                 </GlassCard>
               ))}
             </div>

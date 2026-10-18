@@ -15,7 +15,7 @@ import {
   Settings,
   Zap,
 } from "lucide-react";
-import { XLogo } from "@/components/ui/BrandIcons";
+import { XLogo, WhatsAppIcon, GmailIcon } from "@/components/ui/BrandIcons";
 
 export const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -262,11 +262,14 @@ export const FAQ_ITEMS = [
 export type SocialLink = {
   label: string;
   href: string;
-  icon: LucideIcon | typeof XLogo;
+  icon: LucideIcon | typeof XLogo | typeof WhatsAppIcon | typeof GmailIcon;
+  color: string;
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "LinkedIn",  href: "https://linkedin.com/in/kaushlendra-pal-42a400251", icon: Linkedin },
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
-  { label: "Facebook",  href: "https://facebook.com", icon: Facebook },
+  { label: "LinkedIn",  href: "https://linkedin.com/in/kaushlendra-pal-42a400251", icon: Linkedin,     color: "text-sky-400"     },
+  { label: "WhatsApp",  href: "https://wa.me/918808841721",                         icon: WhatsAppIcon, color: "text-emerald-400" },
+  { label: "Gmail",     href: "mailto:yadavsid50k@gmail.com",                       icon: GmailIcon,    color: "text-red-400"     },
+  { label: "Instagram", href: "https://instagram.com",                              icon: Instagram,    color: "text-fuchsia-400" },
+  { label: "Facebook",  href: "https://facebook.com",                               icon: Facebook,     color: "text-blue-400"    },
 ];

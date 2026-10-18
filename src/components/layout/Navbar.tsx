@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SKLogo } from "@/components/ui/SKLogo";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -57,7 +58,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+                className="text-sm font-medium t-body transition-colors hover:t-heading"
               >
                 {link.label}
               </Link>
@@ -65,6 +66,7 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
             <Link
               href="#contact"
               className="rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-sky-400 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition-transform hover:scale-[1.02]"
@@ -73,17 +75,19 @@ export function Navbar() {
             </Link>
           </div>
 
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 p-2 text-zinc-100 md:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            <span className="sr-only">Toggle menu</span>
-          </button>
-        </motion.div>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 p-2 text-zinc-100"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="sr-only">Toggle menu</span>
+            </button>
+          </div></motion.div>
       </div>
 
       <AnimatePresence>
@@ -104,7 +108,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-2 text-sm font-medium text-zinc-200 hover:bg-white/5"
+                  className="block rounded-xl px-3 py-2 text-sm font-medium t-label hover:bg-white/5"
                 >
                   {link.label}
                 </Link>
