@@ -1,10 +1,8 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Briefcase,
   Code2,
   Database,
   Facebook,
-  Github,
   Globe,
   Instagram,
   Layers,
@@ -15,7 +13,6 @@ import {
   Search,
   Server,
   Settings,
-  Youtube,
   Zap,
 } from "lucide-react";
 import { XLogo } from "@/components/ui/BrandIcons";
@@ -114,8 +111,8 @@ export const PROJECTS = [
       "Ticketing and knowledge base portal that reduced response times with smart routing and SLA dashboards.",
     image: "",
     tech: ["Next.js", "Node.js", "MongoDB"],
-    github: "https://github.com/Kaushlendra-pal",
-    demo: "https://vercel.com",
+    github: "https://github.com/sid-deve",
+    demo: "https://github.com/sid-deve",
   },
   {
     title: "Job Portal",
@@ -123,8 +120,8 @@ export const PROJECTS = [
       "Role discovery platform with saved searches, employer analytics, and frictionless applications.",
     image: "",
     tech: ["React", "Laravel", "MySQL"],
-    github: "https://github.com/Kaushlendra-pal",
-    demo: "https://vercel.com",
+    github: "https://github.com/sid-deve",
+    demo: "https://github.com/sid-deve",
   },
   {
     title: "Food Wastage Management System",
@@ -132,8 +129,8 @@ export const PROJECTS = [
       "Inventory intelligence connecting surplus supply with partners—tracking impact in real time.",
     image: "",
     tech: ["Next.js", "REST API", "Tailwind"],
-    github: "https://github.com/Kaushlendra-pal",
-    demo: "https://vercel.com",
+    github: "https://github.com/sid-deve",
+    demo: "https://github.com/sid-deve",
   },
   {
     title: "Headless WordPress Site",
@@ -141,8 +138,8 @@ export const PROJECTS = [
       "Decoupled CMS architecture with WordPress as the backend and Next.js powering a blazing-fast front end.",
     image: "",
     tech: ["WordPress", "Next.js", "REST APIs"],
-    github: "https://github.com/Kaushlendra-pal",
-    demo: "https://vercel.com",
+    github: "https://github.com/sid-deve",
+    demo: "https://github.com/sid-deve",
   },
   {
     title: "Portfolio Dashboard",
@@ -150,8 +147,8 @@ export const PROJECTS = [
       "Unified analytics cockpit combining contact submissions, user tracking, and admin management.",
     image: "",
     tech: ["Next.js", "Tailwind", "Laravel"],
-    github: "https://github.com/Kaushlendra-pal",
-    demo: "https://vercel.com",
+    github: "https://github.com/sid-deve",
+    demo: "https://github.com/sid-deve",
   },
 ] as const;
 
@@ -269,11 +266,7 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "GitHub",    href: "https://github.com/Kaushlendra-pal", icon: Github },
   { label: "LinkedIn",  href: "https://linkedin.com/in/kaushlendra-pal-42a400251", icon: Linkedin },
-  { label: "Fiverr",    href: "https://fiverr.com", icon: Briefcase },
   { label: "Instagram", href: "https://instagram.com", icon: Instagram },
   { label: "Facebook",  href: "https://facebook.com", icon: Facebook },
-  { label: "X",         href: "https://x.com", icon: XLogo },
-  { label: "YouTube",   href: "https://www.youtube.com/@animation_world6389", icon: Youtube },
 ];
