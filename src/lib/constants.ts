@@ -199,25 +199,18 @@ export const WHY_FEATURES: WhyFeature[] = [
 
 export const TIMELINE = [
   {
-    date: "2024 - 2025",
-    role: "Independent Full Stack Partner",
-    org: "Freelance · Remote",
+    date: "May 2025 – January 2025",
+    role: "Trainee Software Engineer",
+    org: "Jamtech Technologies Pvt. Ltd · Lucknow · Onsite, Full Time",
     description:
-      "Helping founders and growing brands ship production websites and web apps—Next.js, WordPress, Laravel, and Node.js—with clear milestones, fast iteration, and launch-ready polish.",
+      "Started as a trainee building and maintaining web applications using modern full-stack technologies. Gained hands-on experience with Angular, WordPress, REST APIs under production constraints.",
   },
   {
-    date: "2025 - 2026",
-    role: "Conversion Landing Pages",
-    org: "Startups & service businesses",
+    date: "February 2026 – Present",
+    role: "Software Engineer",
+    org: "Jamtech Technologies Pvt. Ltd · Lucknow · Onsite, Full Time",
     description:
-      "Designed and built high-speed landing pages that turn traffic into booked calls—tight copy hierarchy, mobile-first layouts, SEO metadata, and analytics wired from day one.",
-  },
-  {
-    date: "2026 — Present",
-    role: "Headless WordPress Builds",
-    org: "Content-led brands",
-    description:
-      "Decoupled WordPress as a CMS from Next.js front ends so editors keep an easy workflow while customers get flagship speed, Core Web Vitals, and modern UI.",
+      "Promoted to Software Engineer, developing scalable applications with Next.js and Laravel, building automation workflows, and optimizing WordPress websites for SEO, performance, and reliability.",
   },
 ] as const;
 
@@ -270,6 +263,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: "LinkedIn",  href: "https://linkedin.com/in/kaushlendra-pal-42a400251", icon: Linkedin,     color: "text-sky-400"     },
   { label: "WhatsApp",  href: "https://wa.me/918808841721",                         icon: WhatsAppIcon, color: "text-emerald-400" },
   { label: "Gmail",     href: "mailto:yadavsid50k@gmail.com",                       icon: GmailIcon,    color: "text-red-400"     },
-  { label: "Instagram", href: "https://instagram.com",                              icon: Instagram,    color: "text-fuchsia-400" },
+  { label: "Instagram", href: "https://instagram.com/next__gen_developer",           icon: Instagram,    color: "text-fuchsia-400" },
   { label: "Facebook",  href: "https://facebook.com",                               icon: Facebook,     color: "text-blue-400"    },
 ];
