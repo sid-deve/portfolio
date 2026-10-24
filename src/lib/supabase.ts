@@ -1,25 +1,9 @@
 /**
  * Server-only Supabase client using the service-role key.
  * Never import this in any client component — it must stay server-side only.
+ * Initialized lazily so missing env vars only throw at request time, not build time.
  */
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-if (!supabaseUrl || !supabaseServiceKey) {
-  throw new Error(
-    "Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY environment variables."
-  );
-}
-
-export const supabase = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    // Service-role clients should never persist sessions
-    persistSession: false,
-    autoRefreshToken: false,
-  },
-});
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 export type ContactMessage = {
   id: string;
@@ -29,3 +13,27 @@ export type ContactMessage = {
   message: string;
   created_at: string;
 };
+
+let _client: SupabaseClient | null = null;
+
+export function getSupabase(): SupabaseClient {
+  if (_client) return _client;
+
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) {
+    throw new Error(
+      "Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY environment variables."
+    );
+  }
+
+  _client = createClient(url, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+
+  return _client;
+}

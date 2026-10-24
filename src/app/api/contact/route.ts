@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { sendContactNotification } from "@/lib/mailer";
 
 export const runtime = "nodejs";
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
   }
 
   // 1. Save to Supabase — this is the primary action
-  const { data: inserted, error: dbError } = await supabase
+  const { data: inserted, error: dbError } = await getSupabase()
     .from("contact_messages")
     .insert([{ name, email, subject: subject || null, message }])
     .select("id, created_at")

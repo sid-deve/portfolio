@@ -4,8 +4,6 @@
  */
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Escape HTML entities to prevent XSS in email templates
 function esc(str: string): string {
   return str
@@ -24,6 +22,7 @@ export async function sendContactNotification(data: {
   message: string;
   submittedAt: string;
 }): Promise<{ ok: boolean; error?: string }> {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const to = process.env.RESEND_NOTIFY_EMAIL ?? "yadavsid50k@gmail.com";
   const from = process.env.RESEND_FROM ?? "onboarding@resend.dev";
 
