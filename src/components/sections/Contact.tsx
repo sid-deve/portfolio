@@ -19,8 +19,9 @@ export function Contact() {
 
     const form = event.currentTarget;
     const data = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      name:    (form.elements.namedItem("name")    as HTMLInputElement).value,
+      email:   (form.elements.namedItem("email")   as HTMLInputElement).value,
+      subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
 
@@ -34,14 +35,15 @@ export function Contact() {
       if (res.ok) {
         setStatus("sent");
         form.reset();
-        window.setTimeout(() => setStatus("idle"), 4000);
+        // Reset back to idle after 6 seconds so visitor can submit again
+        window.setTimeout(() => setStatus("idle"), 6000);
       } else {
         const json = await res.json().catch(() => ({}));
-        setErrorMsg((json as { error?: string }).error ?? "Something went wrong.");
+        setErrorMsg((json as { error?: string }).error ?? "Something went wrong. Please try again.");
         setStatus("error");
       }
     } catch {
-      setErrorMsg("Network error — please try again.");
+      setErrorMsg("Network error — please check your connection and try again.");
       setStatus("error");
     }
   };
@@ -57,6 +59,7 @@ export function Contact() {
         />
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+          {/* ── Left: Direct channels ── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -94,6 +97,7 @@ export function Contact() {
             </GlassCard>
           </motion.div>
 
+          {/* ── Right: Contact form ── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,23 +105,27 @@ export function Contact() {
             transition={{ duration: 0.55, delay: 0.08 }}
           >
             <GlassCard strong className="p-8">
-              <form className="space-y-5" onSubmit={handleSubmit}>
+              <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+                {/* Name */}
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium t-body">
-                    Name
+                    Name <span className="text-red-400" aria-hidden>*</span>
                   </label>
                   <input
                     id="name"
                     name="name"
                     required
                     autoComplete="name"
+                    maxLength={100}
                     className="w-full rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
                     placeholder="Jordan Lee"
                   />
                 </div>
+
+                {/* Email */}
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium t-body">
-                    Email
+                    Email <span className="text-red-400" aria-hidden>*</span>
                   </label>
                   <input
                     id="email"
@@ -125,38 +133,72 @@ export function Contact() {
                     type="email"
                     required
                     autoComplete="email"
+                    maxLength={254}
                     className="w-full rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
                     placeholder="you@company.com"
                   />
                 </div>
+
+                {/* Subject (optional) */}
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium t-body">
+                    Subject <span className="text-xs t-subtle">(optional)</span>
+                  </label>
+                  <input
+                    id="subject"
+                    name="subject"
+                    maxLength={150}
+                    className="w-full rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
+                    placeholder="Project enquiry, collaboration…"
+                  />
+                </div>
+
+                {/* Message */}
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium t-body">
-                    Message
+                    Message <span className="text-red-400" aria-hidden>*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     required
                     rows={5}
+                    maxLength={5000}
                     className="w-full resize-none rounded-xl border b-subtle bg-input px-4 py-3 text-sm t-heading outline-none ring-violet-400/0 transition focus:border-violet-400/60 focus:ring-4 focus:ring-violet-500/15"
                     placeholder="Share goals, timelines, and links..."
                   />
                 </div>
+
+                {/* Submit */}
                 <button
                   type="submit"
-                  disabled={status === "sending"}
+                  disabled={status === "sending" || status === "sent"}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-sky-400 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-transform hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {status === "sending" ? "Sending…" : "Send message"}
-                  <Send className="h-4 w-4" aria-hidden />
+                  {status === "sending"
+                    ? "Sending…"
+                    : status === "sent"
+                      ? "Message sent ✓"
+                      : "Send message"}
+                  {status !== "sent" && <Send className="h-4 w-4" aria-hidden />}
                 </button>
+
+                {/* Success */}
                 {status === "sent" && (
-                  <p className="text-center text-sm text-emerald-400" role="status">
-                    Thanks—your note is on its way. I&apos;ll reply shortly.
+                  <p
+                    className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/5 px-4 py-3 text-center text-sm text-emerald-400"
+                    role="status"
+                  >
+                    ✓ Your message is saved — I&apos;ll reply within one business day.
                   </p>
                 )}
+
+                {/* Error */}
                 {status === "error" && (
-                  <p className="text-center text-sm text-red-400" role="alert">
+                  <p
+                    className="flex items-center justify-center gap-2 rounded-xl border border-red-500/20 bg-red-500/5 px-4 py-3 text-center text-sm text-red-400"
+                    role="alert"
+                  >
                     {errorMsg}
                   </p>
                 )}
